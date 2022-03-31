@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import image from "../../../icons/Vector.png";
-import "../Header/Header.scss";
+import "./Header.scss";
 
 const Header = () => {
   let headerText = "";
@@ -35,8 +35,13 @@ const Header = () => {
       buttonExit = buttonExit;
       break;
 
-    default:
+    case "/":
       headerText = "Войти в систему";
+      buttonExit = null
+      break;
+
+    default:
+      headerText = "Страница не найдена";
       buttonExit = "";
       break;
   }
