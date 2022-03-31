@@ -1,0 +1,112 @@
+.all-cont {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	width: 25.03125em;
+	height: 28.3125em;
+	background: #ffffff;
+	border-radius: 4px;
+	
+	form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		.reg-form {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			.auth-form {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 18px;
+				
+				h4 {
+					text-align: center;
+					font-family: "Roboto";
+					font-style: normal;
+					font-weight: 300;
+					font-size: 36px;
+					line-height: 42px;
+					color: black;
+					margin: 14px;
+				}
+
+				.form-style {
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+					
+					label {
+						font-family: "Roboto";
+						font-style: normal;
+						font-weight: 300;
+						font-size: 18px;
+						line-height: 21px;
+						color: #000000;
+					}
+
+					input {
+						width: 321px;
+						height: 40px;
+						left: 575px;
+						top: 309px;
+						font-family: "Roboto";
+						font-style: normal;
+						font-weight: 300;
+						font-size: 18px;
+						line-height: 21px;
+						background: #ffffff;
+						border: 1px solid rgba(0, 0, 0, 0.2);
+						box-sizing: border-box;
+						border-radius: 4px;
+						padding: 1.3125em;
+					}
+				}
+			}
+
+			.reg-link {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				align-items: flex-end;
+				margin-top: 20px;
+				gap: 5px;
+				
+				.Registr {
+					background-color: white;
+					cursor: pointer;
+					background: #ffffff;
+					border: 1px solid rgba(0, 0, 0, 0.2);
+					box-sizing: border-box;
+					border-radius: 4px;
+					font-family: "Roboto";
+					font-style: normal;
+					font-weight: 300;
+					font-size: 18px;
+					line-height: 21px;
+					padding: 10px 10px 10px 10px;
+					color: rgba(0, 0, 0, 0.8);
+				}
+
+				a {
+					display: flex;
+					justify-content: flex-end;
+
+					.ButtonStyle {
+						font-family: "Roboto";
+						font-style: normal;
+						font-weight: 300;
+						font-size: 18px;
+						line-height: 21px;
+						color: #000000;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+.Header {
+  width: 100%;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.3em;
+    background: #c5e9ff;
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4.3em;
+      margin-left: 2.754375em;
+    }
+
+    .textHeader {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 36px;
+      color: #000000;
+    }
+
+    .btn-exit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 10px 40px;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      color: #000000;
+      cursor: pointer;
+      margin-right: 0.5em;
+    }
+  }
+}
