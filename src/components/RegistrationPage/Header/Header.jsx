@@ -37,6 +37,7 @@ const Header = () => {
 
     case "/":
       headerText = "Войти в систему";
+      buttonExit = null
       break;
 
     default:
