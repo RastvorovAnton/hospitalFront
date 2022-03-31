@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Image from "../../../../icons/MainLogo.png";
-import "../MainLogo/MainLogo.scss";
+import "./MainLogo.scss";
 
 const MainLogo = () => {
   return (

@@ -1,31 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import MuiAlert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-import "./RegistrationForm.scss";
+import MuiAlert from "@mui/material/Alert";
+import RegistrationForm from "../RegistationForm/RegistrationForm";
+// import MainPage from "../../../MainPage/MainPage";
+import "./AuthorizationForm.scss";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const RegistrationForm = () => {
+const AuthorizationForm = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
   const [loginDirty, setLoginDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
-  const [loginError, setLoginError] = useState("Логин не может быть пустым");
+  const [loginError, setLoginError] = useState("Login can't be an empty");
   const [passwordError, setPasswordError] = useState(
-    "Пароль не может быть пустым"
+    "Password can't be an empty"
   );
   const [formValid, setFormValid] = useState(false);
   const [click, setClick] = useState(0);
-  const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState("2");
-  const regExLogin =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (loginError || passwordError) {
@@ -37,8 +46,10 @@ const RegistrationForm = () => {
 
   const loginHandler = (e) => {
     setLogin(e.target.value);
+    const re =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-    if (!regExLogin.test(String(e.target.value).toLowerCase())) {
+    if (!re.test(String(e.target.value).toLowerCase())) {
       setLoginError("Incorrect Email or Login");
     } else {
       setLoginError("");
@@ -59,7 +70,7 @@ const RegistrationForm = () => {
 
   const blurHandler = (e) => {
     switch (e.target.name) {
-      case "email":
+      case "login":
         setLoginDirty(true);
         break;
       case "password":
@@ -68,24 +79,14 @@ const RegistrationForm = () => {
     }
   };
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
-  };
-
-  const userCreate = async (event) => {
+  const enterUser = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const formLogin = formData.get("email");
+    const formLogin = formData.get("email").trim("");
     const formPassword = formData.get("password");
+
     await axios
-      .post("http://localhost:8000/userCreate", {
+      .post("http://localhost:8000/enterUser", {
         email: formLogin,
         password: formPassword,
       })
@@ -94,19 +95,20 @@ const RegistrationForm = () => {
         navigate("/mainPage");
       })
       .catch((res) => {
-        setStatus("error");
+        setOpen(true);
       });
   };
+
   return (
-    <form onSubmit={userCreate}>
+    <form onSubmit={enterUser}>
       {click === 0 ? (
         <div className="reg-form">
           <div className="auth-form">
-            <h4>Регистрация</h4>
+            <h4>Войти в систему</h4>
             <div className="form-style">
               <label>Email/Логин:</label>
               <input
-                onClick={handleClick}
+                // onClick={handleClick}
                 onChange={(e) => loginHandler(e)}
                 onBlur={(e) => blurHandler(e)}
                 name="email"
@@ -130,7 +132,7 @@ const RegistrationForm = () => {
               )}
               <label>Пароль:</label>
               <input
-                onClick={handleClick}
+                // onClick={handleClick}
                 onChange={(e) => passwordHandler(e)}
                 onBlur={(e) => blurHandler(e)}
                 name="password"
@@ -153,40 +155,15 @@ const RegistrationForm = () => {
                   </Alert>
                 </Snackbar>
               )}
-              <label>Повторите пароль:</label>
-              <input
-                onClick={handleClick}
-                onChange={(e) => setRepeatPassword(e.target.value)}
-                onBlur={(e) => blurHandler(e)}
-                name="repeatPassword"
-                type="password"
-                placeholder="Пароль"
-              />
-              {password !== repeatPassword && (
-                <Snackbar
-                  open={open}
-                  autoHideDuration={4000}
-                  onClose={handleClose}
-                >
-                  <Alert
-                    onClose={handleClose}
-                    severity="error"
-                    sx={{ width: "100%" }}
-                  >
-                    Пароли не совпадают. Используйте минимум 6 символов вместе с
-                    латинской буквой
-                  </Alert>
-                </Snackbar>
-              )}
             </div>
           </div>
           <div className="reg-link">
             <button disabled={!formValid} className="Registr">
-              Зарегистрироваться
+              Войти
             </button>
-            <Link to="/authorization">
+            <Link to="/registration">
               <span className="ButtonStyle" onClick={() => setClick(1)}>
-                Авторизоваться
+                Зарегистрироваться
               </span>
             </Link>
           </div>
@@ -194,8 +171,14 @@ const RegistrationForm = () => {
       ) : (
         click
       )}
+
+      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Такого пользователя не существует
+        </Alert>
+      </Snackbar>
     </form>
   );
 };
 
-export default RegistrationForm;
+export default AuthorizationForm;
