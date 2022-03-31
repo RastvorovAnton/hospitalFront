@@ -5,7 +5,6 @@ import image from '../../../icons/Vector.png'
 import '../Header/Header.scss'
 
 const Header = () => {
-
 	let headerText = '';
 	let buttonExit = 
 

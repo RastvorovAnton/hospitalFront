@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 import axios from "axios";
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 import './RegistrationForm.scss';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert
+    elevation={6}
+    ref={ref}
+    variant="filled" {...props}
+  />;
 });
 
 const RegistrationForm = () => {
@@ -111,11 +115,11 @@ const RegistrationForm = () => {
                 type="email"
                 placeholder='Логин' />
               {(loginDirty && loginError) &&
-                  <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                     Некорректный Email. Используйте символ @ и домен
-                    </Alert>
-                  </Snackbar>
+                  </Alert>
+                </Snackbar>
               }
               <label>Пароль:</label>
               <input
@@ -126,11 +130,11 @@ const RegistrationForm = () => {
                 type="password"
                 placeholder='Пароль' />
               {(passwordDirty && passwordError) &&
-                  <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                     Некорректный пароль. Используйте минимум 6 символов вместе с латинской буквой
-                    </Alert>
-                  </Snackbar>
+                  </Alert>
+                </Snackbar>
               }
               <label>Повторите пароль:</label>
               <input
@@ -141,11 +145,11 @@ const RegistrationForm = () => {
                 type="password"
                 placeholder='Пароль' />
               {(password !== repeatPassword) &&
-                  <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                      Пароли не совпадают. Используйте минимум 6 символов вместе с латинской буквой
-                    </Alert>
-                  </Snackbar>
+                <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                    Пароли не совпадают. Используйте минимум 6 символов вместе с латинской буквой
+                  </Alert>
+                </Snackbar>
               }
             </div>
           </div>

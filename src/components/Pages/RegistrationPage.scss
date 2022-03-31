@@ -10,7 +10,8 @@ html {
 }
 
 @media screen and (max-width: 890px) {
-	.Header header .textHeader {
+	.Header header 
+	.textHeader {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -59,7 +60,8 @@ a:-webkit-any-link {
 		}
 	}
 
-	.Header header .textHeader {
+	.Header header 
+	.textHeader {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -88,7 +90,8 @@ a:-webkit-any-link {
 			width: auto;
 		}
 	}
-	.Header header .textHeader {
+	.Header header 
+	.textHeader {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
