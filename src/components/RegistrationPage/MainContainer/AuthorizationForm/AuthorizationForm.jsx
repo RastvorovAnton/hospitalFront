@@ -25,10 +25,6 @@ const AuthorizationForm = () => {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
-  // const handleClick = () => {
-  //   setOpen(true);
-  // };
-
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -108,13 +104,11 @@ const AuthorizationForm = () => {
             <div className="form-style">
               <label>Email/Логин:</label>
               <input
-                // onClick={handleClick}
                 onChange={(e) => loginHandler(e)}
                 onBlur={(e) => blurHandler(e)}
                 name="email"
                 type="email"
-                placeholder="Логин"
-              />
+                placeholder="Логин" />
               {loginDirty && loginError && (
                 <Snackbar
                   open={open}
@@ -132,13 +126,11 @@ const AuthorizationForm = () => {
               )}
               <label>Пароль:</label>
               <input
-                // onClick={handleClick}
                 onChange={(e) => passwordHandler(e)}
                 onBlur={(e) => blurHandler(e)}
                 name="password"
                 type="password"
-                placeholder="Пароль"
-              />
+                placeholder="Пароль" />
               {passwordDirty && passwordError && (
                 <Snackbar
                   open={open}

@@ -3,7 +3,7 @@ import RegistrationPage from "./components/Pages/RegistrationPage";
 import AuthorizationPage from "./components/Pages/AuthorizationPage";
 import Header from "./components/RegistrationPage/Header/Header";
 // import MainPage from "./components/MainPage/MainPage";
-// import Table from "./components/MainPage/Table/Table";
+import Table from "./components/MainPage/Table/Table";
 import "./App.css";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/authorization" element={<AuthorizationPage />} />
           {/* <Route path="/mainPage" element={<MainPage />} /> */}
-          {/* <Route path="/table" element={<Table />} /> */}
+          <Route path="/table" element={<Table />} />
           <Route path="/" element={<AuthorizationPage />} />
         </Routes>
       </BrowserRouter>
