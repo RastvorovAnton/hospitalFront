@@ -52,3 +52,35 @@
     }
   }
 }
+
+@media screen and (max-width: 555px) {
+  img {
+    display: none;
+  }
+}
+
+.Header header .textHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  color: #000000;
+}
+
+@media screen and (max-width: 360px) {
+  .Header header {
+    justify-content: center;
+  }
+  .textHeader {
+    width: max-content;
+    div {
+      font-size: 18px;
+    }
+  }
+  img {
+    display: none;
+  }
+}

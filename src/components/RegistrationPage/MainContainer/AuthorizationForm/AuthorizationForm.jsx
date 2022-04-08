@@ -4,7 +4,7 @@ import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import RegistrationForm from "../RegistationForm/RegistrationForm";
-// import MainPage from "../../../MainPage/MainPage";
+import MainPage from "../../../MainPage/MainPage";
 import "./AuthorizationForm.scss";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -91,18 +91,23 @@ const AuthorizationForm = () => {
         password: formPassword,
       })
       .then((res) => {
-        localStorage.setItem("token", res.data);
+        console.log(res.data)
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userMail", res.data.user.email);
+
         navigate("/mainPage");
       })
       .catch((res) => {
-        setOpen(true);
+        setLoginError("Некорректный Email или пароль");
+        setPasswordError("Некорректный Email или пароль");
+				setOpen(true)
       });
   };
 
   return (
     <form onSubmit={enterUser}>
       {click === 0 ? (
-        <div className="reg-form">
+        <div>
           <div className="auth-form">
             <h4>Войти в систему</h4>
             <div className="form-style">

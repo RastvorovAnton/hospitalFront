@@ -110,3 +110,50 @@
     }
   }
 }
+
+@media screen and (max-width: 660px) {
+
+  .all-cont form .reg-form .reg-link a .ButtonStyle {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+}
+
+  .all-cont form .reg-form .reg-link .Registr {
+    padding: 6px 6px 6px 6px;
+    font-size: 16px;
+  }
+
+  .all-cont form .reg-form .auth-form {
+    gap: 0;
+  }
+
+  .all-cont form .reg-form .reg-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    gap: 1px;
+  }
+
+  .all-cont form .reg-form .auth-form .form-style input {
+    width: 251px;
+    height: 40px;
+    left: 575px;
+    top: 309px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 1.3125em;
+}
+}
